@@ -1,0 +1,9 @@
+- name: Install Docker on Rocky Linux 9 
+  hosts: all
+  become: true
+
+  tasks:
+   - name: Ping my hosts
+     ansible.builtin.ping:
+
+   - name: Install Docker
