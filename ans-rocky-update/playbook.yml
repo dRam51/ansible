@@ -22,4 +22,4 @@
 
    - name: Print message
      ansible.builtin.debug:
-       msg: All packages have been updated to the latest version on Rocky Linux 9 hosts!
+       msg: All packages have been updated to the latest version on Rocky Linux 9 hosts!!
