@@ -1,0 +1,30 @@
+- name: Create app directory
+  file:
+    path: /opt/wordpress
+    state: directory
+
+- name: Create persistent volume directory for MariaDB
+  file:
+    path: /opt/wordpress/data/db
+    state: directory
+    owner: 1001  # Default MariaDB UID inside container
+    group: 1001
+    recurse: yes
+
+- name: Create persistent volume directory for WordPress
+  file:
+    path: /opt/wordpress/data/html
+    state: directory
+    owner: 33   # www-data user inside WordPress container
+    group: 33
+    recurse: yes
+
+- name: Deploy docker-compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: /opt/wordpress/docker-compose.yml
+
+- name: Launch WordPress and MariaDB
+  command: docker compose up -d
+  args:
+    chdir: /opt/wordpress
