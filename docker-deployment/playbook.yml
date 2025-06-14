@@ -7,3 +7,7 @@
      ansible.builtin.ping:
 
    - name: Install Docker
+
+   - name: Install Docker Compose
+  
+   - name: test
