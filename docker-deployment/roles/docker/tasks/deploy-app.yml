@@ -21,7 +21,7 @@
 
 - name: Deploy docker-compose file
   template:
-    src: docker-compose.yml.j2
+    src: docker-compose.j2.yml   # Ensure the template file is located in the templates directory of the role
     dest: /opt/wordpress/docker-compose.yml
 
 - name: Launch WordPress and MariaDB
